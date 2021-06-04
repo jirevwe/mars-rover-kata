@@ -1,3 +1,6 @@
+import { Direction } from './utils';
+import { Rover } from './rover';
+
 describe('rover test sequence', () => {
   it.each`
     config
