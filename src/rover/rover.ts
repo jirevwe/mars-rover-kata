@@ -40,7 +40,16 @@ export class Rover {
       B: this.moveBackward
     };
 
+    const validInput = Object.keys(inputToFunctionMapping);
     for (const char of input) {
+      if (!validInput.includes(char)) {
+        throw new Error(
+          `invalid character detected in input, directions must be one of [${validInput.join(
+            ', '
+          )}]`
+        );
+      }
+
       const roverFunction = inputToFunctionMapping[char];
       roverFunction.bind(this)();
     }
