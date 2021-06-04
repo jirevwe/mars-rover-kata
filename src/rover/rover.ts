@@ -1,5 +1,5 @@
 import { RoverConfig, Vector2 } from './typings';
-import { Direction, directionMapping } from './utils';
+import { Direction, directionMapping, toHumanReadableDirection } from './utils';
 
 export class Rover {
   position: Vector2;
@@ -32,7 +32,20 @@ export class Rover {
     this.position.y -= directionMapping(this.direction).y;
   }
 
-  processCommandString(input: string) {
-    return '(0, 0) NORTH';
+  processCommandString(input: string): string {
+    const inputToFunctionMapping = {
+      L: this.turnLeft,
+      R: this.turnRight,
+      F: this.moveForward,
+      B: this.moveBackward
+    };
+
+    for (const char of input) {
+      const roverFunction = inputToFunctionMapping[char];
+      roverFunction.bind(this)();
+    }
+
+    const humanReadableDirection = toHumanReadableDirection(this.direction);
+    return `(${this.position.x}, ${this.position.y}) ${humanReadableDirection}}`;
   }
 }
