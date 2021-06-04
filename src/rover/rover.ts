@@ -1,5 +1,5 @@
 import { RoverConfig, Vector2 } from './typings';
-import { Direction } from './utils';
+import { Direction, directionMapping } from './utils';
 
 export class Rover {
   position: Vector2;
@@ -22,5 +22,8 @@ export class Rover {
       (this.direction + this.possibleDirections + 1) % this.possibleDirections;
   }
 
-  moveForward() {}
+  moveForward() {
+    this.position.x += directionMapping(this.direction).x;
+    this.position.y += directionMapping(this.direction).y;
+  }
 }
