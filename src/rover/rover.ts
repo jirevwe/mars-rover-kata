@@ -27,5 +27,8 @@ export class Rover {
     this.position.y += directionMapping(this.direction).y;
   }
 
-  moveBackward() {}
+  moveBackward() {
+    this.position.x -= directionMapping(this.direction).x;
+    this.position.y -= directionMapping(this.direction).y;
+  }
 }
