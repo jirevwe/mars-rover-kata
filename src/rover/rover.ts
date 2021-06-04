@@ -21,4 +21,6 @@ export class Rover {
     this.direction =
       (this.direction + this.possibleDirections + 1) % this.possibleDirections;
   }
+
+  moveForward() {}
 }
