@@ -73,4 +73,25 @@ describe('rover test sequence', () => {
       expect(rover.direction).toBe(direction);
     }
   );
+
+  test.each`
+    config                                        | expected
+    ${{ x: 1, y: 0, direction: Direction.EAST }}  | ${{ x: 0, y: 0, direction: Direction.EAST }}
+    ${{ x: 0, y: 1, direction: Direction.NORTH }} | ${{ x: 0, y: 0, direction: Direction.NORTH }}
+    ${{ x: 0, y: 0, direction: Direction.SOUTH }} | ${{ x: 0, y: 1, direction: Direction.SOUTH }}
+    ${{ x: 0, y: 0, direction: Direction.WEST }}  | ${{ x: 1, y: 0, direction: Direction.WEST }}
+  `(
+    'should move a rover at ($config.x, $config.y) backward to ($expected.x, $expected.y)',
+    ({ config, expected }) => {
+      const rover = new Rover(config);
+
+      rover.moveBackward();
+
+      const { x, y, direction } = expected;
+
+      expect(rover.position.x).toBe(x);
+      expect(rover.position.y).toBe(y);
+      expect(rover.direction).toBe(direction);
+    }
+  );
 });
