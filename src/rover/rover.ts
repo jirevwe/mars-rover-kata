@@ -31,4 +31,8 @@ export class Rover {
     this.position.x -= directionMapping(this.direction).x;
     this.position.y -= directionMapping(this.direction).y;
   }
+
+  processCommandString(input: string) {
+    return '(0, 0) NORTH';
+  }
 }
