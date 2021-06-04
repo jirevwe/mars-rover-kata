@@ -95,3 +95,23 @@ describe('rover test sequence', () => {
     }
   );
 });
+
+describe('rover input processing test', () => {
+  test.each`
+    config                                                           | expected
+    ${{ x: 0, y: 0, direction: Direction.NORTH, input: 'LL' }}       | ${'(0, 0) SOUTH'}
+    ${{ x: 0, y: 0, direction: Direction.WEST, input: 'RR' }}        | ${'(0, 0) EAST'}
+    ${{ x: 0, y: 0, direction: Direction.SOUTH, input: 'FF' }}       | ${'(0, -2) SOUTH'}
+    ${{ x: 0, y: 0, direction: Direction.EAST, input: 'BB' }}        | ${'(-2, 0) EAST'}
+    ${{ x: 4, y: 2, direction: Direction.EAST, input: 'FLFFFRFLB' }} | ${'(6, 4) NORTH'}
+  `(
+    "should validate that a rover can process an input string and report it's coordinates",
+    ({ config, expected }) => {
+      const rover = new Rover(config);
+
+      const output = rover.processCommandString(config.input);
+
+      expect(output).toMatch(expected);
+    }
+  );
+});
