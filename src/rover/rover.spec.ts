@@ -114,4 +114,17 @@ describe('rover input processing test', () => {
       expect(output).toMatch(expected);
     }
   );
+
+  test.each`
+    config                                                      | expected
+    ${{ x: 0, y: 0, direction: Direction.NORTH, input: 'LEL' }} | ${'directions must be one of [L, R, F, B]'}
+    ${{ x: 0, y: 0, direction: Direction.WEST, input: 'BRS' }}  | ${'directions must be one of [L, R, F, B]'}
+  `(
+    'should return an error while processing an input string',
+    ({ config, expected }) => {
+      const rover = new Rover(config);
+
+      expect(() => rover.processCommandString(config.input)).toThrow(expected);
+    }
+  );
 });
