@@ -8,4 +8,6 @@ export class Rover {
     this.direction = config.direction;
     this.position = { x: config.x, y: config.y };
   }
+
+  turnLeft() {}
 }
