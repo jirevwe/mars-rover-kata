@@ -1,9 +1,9 @@
-export const Direction = Object.freeze({
-  NORTH: 0,
-  SOUTH: 2,
-  EAST: 1,
-  WEST: 3
-});
+export enum Direction {
+  NORTH = 0,
+  SOUTH = 2,
+  EAST = 1,
+  WEST = 3
+}
 
 export function directionMapping(direction: number) {
   switch (direction) {

@@ -9,7 +9,7 @@ export class Rover {
   constructor(readonly config: RoverConfig) {
     this.direction = config.direction;
     this.position = { x: config.x, y: config.y };
-    this.possibleDirections = Object.keys(Direction).length;
+    this.possibleDirections = Object.keys(Direction).length / 2;
   }
 
   turnLeft() {
