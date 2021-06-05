@@ -1,6 +1,6 @@
 # Mars Rover TDD Kata
 
-# Docker Setup
+## Docker Setup
 
 On a Unix (Mac and Linux) machine, run:
 
@@ -10,6 +10,14 @@ On a Windows machine, run:
 
 - `docker build -t rover .`, which builds and tags the image.
 - `docker run -it rover`, runs the container in interactive mode.
+
+## Running the Application
+
+Run `yarn start`
+
+<p align="center"><img width="883" alt="Screenshot 2021-06-05 at 4 05 18 PM" src="https://user-images.githubusercontent.com/5263355/120896139-1ba14280-c618-11eb-9df1-ec8a56d521f3.png"></p>
+
+
 
 # Rover Specification
 
