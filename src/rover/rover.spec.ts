@@ -1,5 +1,15 @@
 import { Direction } from './utils';
 import { Rover } from './rover';
+import { RoverConfig } from './typings';
+
+function assertRoverConfig(rover: Rover, expected: RoverConfig) {
+  const { x, y, direction } = expected;
+
+  expect(rover).toBeTruthy();
+  expect(rover.position.x).toBe(x);
+  expect(rover.position.y).toBe(y);
+  expect(rover.direction).toBe(direction);
+}
 
 describe('rover test sequence', () => {
   it.each`
@@ -11,10 +21,7 @@ describe('rover test sequence', () => {
   `('the rover should be initialised correctly', ({ config }) => {
     const rover = new Rover(config);
 
-    expect(rover).toBeTruthy();
-    expect(rover.position.x).toBe(config.x);
-    expect(rover.position.y).toBe(config.y);
-    expect(rover.direction).toBe(config.direction);
+    assertRoverConfig(rover, config);
   });
 
   test.each`
@@ -28,11 +35,7 @@ describe('rover test sequence', () => {
 
     rover.turnLeft();
 
-    const { x, y, direction } = expected;
-
-    expect(rover.position.x).toBe(x);
-    expect(rover.position.y).toBe(y);
-    expect(rover.direction).toBe(direction);
+    assertRoverConfig(rover, expected);
   });
 
   test.each`
@@ -46,11 +49,7 @@ describe('rover test sequence', () => {
 
     rover.turnRight();
 
-    const { x, y, direction } = expected;
-
-    expect(rover.position.x).toBe(x);
-    expect(rover.position.y).toBe(y);
-    expect(rover.direction).toBe(direction);
+    assertRoverConfig(rover, expected);
   });
 
   test.each`
@@ -66,11 +65,7 @@ describe('rover test sequence', () => {
 
       rover.moveForward();
 
-      const { x, y, direction } = expected;
-
-      expect(rover.position.x).toBe(x);
-      expect(rover.position.y).toBe(y);
-      expect(rover.direction).toBe(direction);
+      assertRoverConfig(rover, expected);
     }
   );
 
@@ -87,11 +82,7 @@ describe('rover test sequence', () => {
 
       rover.moveBackward();
 
-      const { x, y, direction } = expected;
-
-      expect(rover.position.x).toBe(x);
-      expect(rover.position.y).toBe(y);
-      expect(rover.direction).toBe(direction);
+      assertRoverConfig(rover, expected);
     }
   );
 });
