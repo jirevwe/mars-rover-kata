@@ -55,6 +55,6 @@ export class Rover {
     }
 
     const humanReadableDirection = toHumanReadableDirection(this.direction);
-    return `(${this.position.x}, ${this.position.y}) ${humanReadableDirection}}`;
+    return `(${this.position.x}, ${this.position.y}) ${humanReadableDirection}`;
   }
 }
