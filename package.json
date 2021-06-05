@@ -12,9 +12,13 @@
   "author": "rtukpe@gmail.com",
   "license": "ISC",
   "dependencies": {
+    "command-line-args": "^5.1.1",
+    "command-line-usage": "^6.1.1",
     "typescript": "^4.3.2"
   },
   "devDependencies": {
+    "@types/command-line-args": "^5.0.0",
+    "@types/command-line-usage": "^5.0.1",
     "@types/jest": "^26.0.23",
     "@types/node": "^15.12.1",
     "jest": "^27.0.3",
