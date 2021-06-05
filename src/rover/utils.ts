@@ -15,6 +15,8 @@ export function directionMapping(direction: number) {
       return { x: 1, y: 0 };
     case Direction.WEST:
       return { x: -1, y: 0 };
+    default:
+      throw new Error(`${direction} is not a valid direction`);
   }
 }
 
@@ -28,5 +30,7 @@ export function toHumanReadableDirection(direction: number) {
       return 'EAST';
     case Direction.WEST:
       return 'WEST';
+    default:
+      throw new Error(`${direction} is not a valid direction`);
   }
 }
