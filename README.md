@@ -15,7 +15,10 @@ On a Windows machine, run:
 
 Run `yarn start -h`
 
-<p align="center"><img width="883" alt="cli showing help options" src="https://user-images.githubusercontent.com/5263355/120896139-1ba14280-c618-11eb-9df1-ec8a56d521f3.png"></p>
+<p align="center">
+  <img width="892" alt="cli showing help options" src="https://user-images.githubusercontent.com/5263355/120939815-ba5d9a00-c711-11eb-8094-113c3ee98ca3.png">
+</p>
+
 
 # Rover Specification
 
