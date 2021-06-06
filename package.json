@@ -4,7 +4,6 @@
   "main": "./dist/index.js",
   "scripts": {
     "start": "node ./dist",
-    "start:dev": "nodemon ./dist",
     "watch:tsc": "rm -rf ./dist && tsc --watch -p ./tsconfig.json",
     "build:tsc": "tsc -p ./tsconfig.json",
     "test": "jest"
