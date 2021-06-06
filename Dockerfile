@@ -10,4 +10,4 @@ COPY . .
 
 RUN yarn build:tsc
 
-RUN [ "yarn", "start" ]
+RUN yarn start
