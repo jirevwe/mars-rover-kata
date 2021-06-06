@@ -42,7 +42,13 @@ export const sections: Section[] = [
         name: 'input',
         alias: 'i',
         type: String,
-        description: 'required, the input that the rover is will process'
+        description: `required, the input that the rover is will process.
+        One of L, R, F, B
+
+        F: Move the rover forward with the current heading
+        B: Move the rover backward with the current heading
+        L: Rotate the rover left by 90 degrees
+        R: Rotate the rover right by 90 degrees`
       },
       {
         name: 'direction',
